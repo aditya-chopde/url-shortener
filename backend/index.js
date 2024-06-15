@@ -1,13 +1,17 @@
 const express = require("express")
 const URL = require("./models/url")
 const cookieParser = require("cookie-parser")
+const bodyParser = require("body-parser")
+const cors = require("cors")
 const app = express()
 const port = 3000;
 
 //Middlewares
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+app.use(bodyParser.json())
 app.use(cookieParser())
+app.use(cors())
 
 //Getting all routes
 const staticRoute = require("./routes/staticRoute")
