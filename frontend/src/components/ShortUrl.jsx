@@ -49,7 +49,7 @@ const ShortUrl = () => {
                 placeholder="Enter Title Here: "
               />
               <div className="my-2">
-                <input disabled={isSubmitting} type="submit" className=" my-2 w-full py-2 bg-[#00ED64] rounded-sm text-white" value="Create"/>
+                <input disabled={isSubmitting} type="submit" className="my-2 w-full py-2 bg-[#00ED64] rounded-sm text-white" value="Create"/>
                 <button className="text-[#00ED64] py-2 w-full my-2 border-[1px] border-[#00ED64]">
                   Cancel
                 </button>
