@@ -1,6 +1,10 @@
 const mongoose = require("mongoose")
 
 const urlSchema = mongoose.Schema({
+    title: {
+        type: String,
+        default: "Title"
+    },
     shortId: {
         type: String,
         required: true,

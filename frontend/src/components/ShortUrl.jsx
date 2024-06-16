@@ -3,6 +3,8 @@ import React from "react";
 
 const ShortUrl = () => {
 
+  const userId = localStorage.getItem("user_id")
+
   const {
     register,
     handleSubmit,
@@ -44,10 +46,16 @@ const ShortUrl = () => {
               />
               <p className="my-2">Title: (Optional)</p>
               <input
+              {...register("title")}
                 type="text"
                 className="px-2 py-3 w-full border-2 outline-[#00ED64] rounded-sm"
                 placeholder="Enter Title Here: "
               />
+              <input
+              {...register("userId")}
+              className="hidden"
+              type="text" 
+              value={userId}/>
               <div className="my-2">
                 <input disabled={isSubmitting} type="submit" className="my-2 w-full py-2 bg-[#00ED64] rounded-sm text-white" value="Create"/>
                 <button className="text-[#00ED64] py-2 w-full my-2 border-[1px] border-[#00ED64]">
