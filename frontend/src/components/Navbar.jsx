@@ -4,10 +4,18 @@ import profile from "../assets/profile.svg";
 import link from "../assets/link.svg";
 import anal from "../assets/analytics.svg";
 import cross from "../assets/cross.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import logout from "../assets/logout.svg"
 
 const Navbar = () => {
   const [toogle, setToogle] = useState(false);
+  const navigate = useNavigate()
+
+  const userLogOut = ( ) =>{
+    localStorage.removeItem("token")
+    localStorage.removeItem("user_id")
+    navigate("/")
+  }
 
   return (
     <>
@@ -57,6 +65,13 @@ const Navbar = () => {
                   <img src={anal} alt="analytics" className="w-6" />
                   <a href="" className="text-md">
                     Analytics
+                  </a>
+                </li>
+                <hr />
+                <li className="flex flex-row gap-5 my-3" onClick={userLogOut}>
+                  <img src={logout} alt="analytics" className="w-6" />
+                  <a href="#" className="text-md">
+                    Logout
                   </a>
                 </li>
               </div>

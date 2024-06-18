@@ -4,7 +4,6 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
-
   const url = "http://localhost:3000/";
   const userId = localStorage.getItem("user_id");
   const [urls, setUrls] = useState([]);
@@ -44,6 +43,7 @@ const StoreContextProvider = (props) => {
     localStorage.setItem("user_id", result.createUser._id)
     localStorage.setItem("token", result.token)
   }
+
 
   useEffect(() => {
     async function loadData(){
