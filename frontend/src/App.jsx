@@ -28,11 +28,11 @@ function App() {
     },
     {
       path: "/signup",
-      element: <><SignUp/></>
+      element: <><Home/><SignUp/></>
     },
     {
       path: "/login",
-      element: <><Login/></>
+      element: <><Home/><Login/></>
     }
   ]);
 

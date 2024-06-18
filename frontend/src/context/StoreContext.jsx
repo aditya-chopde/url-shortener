@@ -6,13 +6,15 @@ const StoreContextProvider = (props) => {
 
   const url = "http://localhost:3000/";
   const userId = localStorage.getItem("user_id");
+  const token = localStorage.getItem("token")
   const [urls, setUrls] = useState([]);
 
   const fetchUrls = async () => {
     const res = await fetch(url + "user/" + userId);
     const result = await res.json();
     const urlArray = result.allUrls;
-    urlArray.reverse()
+    if(!token) return;
+    urlArray.reverse();
     setUrls(urlArray);
   };
 
@@ -51,12 +53,17 @@ const StoreContextProvider = (props) => {
     }
     loadData()
   }, [])
+
+  const [toogle, setToogle] = useState(false);
   
   const contextValue = {
     urls, 
     setUrls,
     logInUser,
     createUser,
+    toogle,
+    setToogle,
+    token,
   };
 
   return (

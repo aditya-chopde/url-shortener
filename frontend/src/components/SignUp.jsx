@@ -16,8 +16,8 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="min-h-screen w-full grid place-items-center">
-        <div className="mx-5">
+      <div>
+        <div className="mx-5 mt-20">
         <h1 className="text-3xl font-bold my-3">Create New Account</h1>
         <p className="mb-8 mt-3">
           Already have a account?&nbsp;

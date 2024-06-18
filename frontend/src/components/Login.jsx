@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import React, { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = () => {
  
+  const navigate = useNavigate()
   const {logInUser} = useContext(StoreContext)
 
   const {
@@ -16,8 +17,8 @@ const Login = () => {
 
   return (
     <>
-    <div className="min-h-screen w-full grid place-items-center">
-      <div className="mx-5">
+    <div>
+      <div className="mx-5 mt-20">
         <h1 className="text-3xl font-bold my-3">Log in</h1>
         <p className="mb-8 mt-3">
           Don't have a account?&nbsp;
