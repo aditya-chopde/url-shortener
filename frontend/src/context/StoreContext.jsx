@@ -1,9 +1,10 @@
 import { createContext, useEffect, useState } from "react";
-import axios from "axios"
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
+
+
   const url = "http://localhost:3000/";
   const userId = localStorage.getItem("user_id");
   const [urls, setUrls] = useState([]);
@@ -11,7 +12,9 @@ const StoreContextProvider = (props) => {
   const fetchUrls = async () => {
     const res = await fetch(url + "user/" + userId);
     const result = await res.json();
-    setUrls(result.allUrls);
+    const urlArray = result.allUrls;
+    urlArray.reverse()
+    setUrls(urlArray);
   };
 
   async function logInUser(data) {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { StrictMode, useContext, useEffect, useState } from "react";
 import copy from "../assets/copy.svg";
 import edit from "../assets/edit.svg";
 import deleteSvg from "../assets/delete.svg";
@@ -14,12 +14,12 @@ const AllUrls = () => {
 
   return (
     <>
-      <div className="bg-[#f4f6fa] w-full h-screen">
-        <h1 className="font-bold text-3xl my-8 mx-5">Your Links</h1>
+      <div className="w-full h-screen my-10">
+        <h1 className="font-bold text-3xl mx-5 my-8">Your Links</h1>
         {urls.map((url) => (
           <div
             key={url._id}
-            className="bg-white mx-5 p-3 rounded-md my-3 space-y-3"
+            className="border-[1px] border-black shadow-md mx-6 p-5 rounded-md my-3 space-y-3"
           >
             <h3 className="text-xl font-bold">{url.title}</h3>
             <a
@@ -31,7 +31,7 @@ const AllUrls = () => {
             <a href={url.redirectURL} className="hover:underline">
               {url.redirectURL}
             </a>
-            <p className="text-[12px] opacity-50">{url.createdAt}</p>
+            <p className="text-[12px]">{url.createdAt}</p>
             <div className="my-3 flex flex-row gap-3">
               <button
                 className="text-black px-3 rounded-sm py-1 border-[1px] border-black flex gap-2 justify-center items-center hover:bg-[#f4f6fa]"

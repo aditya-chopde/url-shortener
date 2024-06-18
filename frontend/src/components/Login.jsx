@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import React, { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
  
@@ -15,13 +16,14 @@ const Login = () => {
 
   return (
     <>
-      <div className="mx-5 mt-10">
+    <div className="min-h-screen w-full grid place-items-center">
+      <div className="mx-5">
         <h1 className="text-3xl font-bold my-3">Log in</h1>
         <p className="mb-8 mt-3">
           Don't have a account?&nbsp;
-          <a href="#" className="text-blue-500 underline">
+          <NavLink to="/signup" className="text-blue-500 underline">
             Sign Up
-          </a>
+          </NavLink>
         </p>
         <form onSubmit={handleSubmit(logInUser)}>
           <h3 className="font-bold">Email</h3>
@@ -86,6 +88,7 @@ const Login = () => {
               Acceptable Use Policy
             </a>
           </p>
+        </div>
         </div>
       </div>
     </>

@@ -1,20 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import ShortUrl from './components/ShortUrl'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import AllUrls from './components/AllUrls'
+import Navbar from './components/Navbar'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import ErrorPage from './components/ErrorPage'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <></>,
+      errorElement: <ErrorPage/>
+    },
+    {
+      path: "/create",
+      element: <><Navbar/><ShortUrl/></>
+    },
+    {
+      path: "/links",
+      element: <><Navbar/><AllUrls/></>
+    },
+    {
+      path: "/signup",
+      element: <><SignUp/></>
+    },
+    {
+      path: "/login",
+      element: <><Login/></>
+    }
+  ]);
 
   return (
     <>
-     {/* <ShortUrl/> */}
-     {/* <SignUp/> */}
-     {/* <Login/> */}
-     <AllUrls/>
+     <RouterProvider router={router} />
     </>
   )
 }
