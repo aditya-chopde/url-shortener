@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
-import React from "react";
+import React, { useContext } from "react";
+import { StoreContext } from "../context/StoreContext";
 
 const Login = () => {
-  const url = "http://localhost:3000/user/login";
+ 
+  const {logInUser} = useContext(StoreContext)
 
   const {
     register,
@@ -10,20 +12,6 @@ const Login = () => {
     setError,
     formState: { errors, isSubmitting },
   } = useForm();
-
-  async function logInUser(data) {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await res.json();
-    
-    localStorage.setItem("user_id", result.user._id)
-    localStorage.setItem("token", result.token)
-  }
 
   return (
     <>
@@ -76,7 +64,7 @@ const Login = () => {
           <input
             disabled={isSubmitting}
             type="submit"
-            value="Sign Up"
+            value="Login"
             className="my-2 w-full py-2 bg-[#00ED64] rounded-sm text-white"
           />
           {errors.myForm && (

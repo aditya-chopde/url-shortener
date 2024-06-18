@@ -1,29 +1,17 @@
 import { useForm } from "react-hook-form";
-import React from "react";
+import React, { useContext } from "react";
+import { StoreContext } from "../context/StoreContext";
 
 const SignUp = () => {
-  const url = "http://localhost:3000/user";
 
+  const {createUser} = useContext(StoreContext)
+  
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors, isSubmitting },
   } = useForm();
-
-  async function createUser(data) {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await res.json();
-    
-    localStorage.setItem("user_id", result.createUser._id)
-    localStorage.setItem("token", result.token)
-  }
 
   return (
     <>
