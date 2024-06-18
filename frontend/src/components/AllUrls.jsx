@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import copy from "../assets/copy.svg";
 import edit from "../assets/edit.svg";
 import deleteSvg from "../assets/delete.svg";
-import analytics from "../assets/analytics.svg";
-import time from "../assets/time.svg";
+import { StoreContext } from "../context/StoreContext";
 
 const AllUrls = () => {
-  const userId = localStorage.getItem("user_id");
   const shortUrl = document.getElementById("shortUrl");
-  const url = `http://localhost:3000/user/${userId}`;
-
-  const [urls, setUrls] = useState([]);
-
   function copyUrl() {
     navigator.clipboard.writeText(shortUrl.innerHTML);
   }
 
-  async function getUrls() {
-    const res = await fetch(url);
-    const result = await res.json();
-    setUrls(result.allUrls);
-  }
-
-  useEffect(() => {
-    getUrls();
-  }, []);
+  const {urls, setUrls} = useContext(StoreContext)
 
   return (
     <>
