@@ -3,7 +3,7 @@ const { handleUserSignup, handleUserLogin, getUrls } = require("../controller/us
 const router = express.Router()
 
 router.get("/:id", getUrls)
-router.post("/", handleUserSignup)
+router.post("/signup", handleUserSignup)
 router.post("/login", handleUserLogin)
 
 module.exports = router;

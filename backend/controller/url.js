@@ -1,6 +1,10 @@
 const shortid = require("shortid")
 const Url = require("../models/url");
 
+async function working(req, res){
+    res.send("API WORKING")
+}
+
 async function handleGenerateShortUrl(req, res) {
     const body = req.body;
     if (!body.url) return res.status(404).json({ err: "URL Is Required" })
@@ -27,6 +31,7 @@ async function handleRedirect(req, res) {
             },
         },
     })
+    if(!getUrl) return;
     res.redirect(getUrl.redirectURL)
 }
 
@@ -54,4 +59,5 @@ module.exports = {
     handleRedirect,
     handleAnalytics,
     handleDeleteUrl,
+    working,
 }

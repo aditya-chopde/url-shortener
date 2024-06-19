@@ -6,7 +6,22 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Login = () => {
  
   const navigate = useNavigate()
-  const {logInUser} = useContext(StoreContext)
+  const {url} = useContext(StoreContext)
+
+  async function logInUser(data) {
+    const res = await fetch(url+"user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await res.json();
+    
+    localStorage.setItem("user_id", result.user._id)
+    localStorage.setItem("token", result.token)
+    localStorage.setItem("name", result.user.name)
+  }
 
   const {
     register,

@@ -1,11 +1,32 @@
 import { useForm } from "react-hook-form";
 import React, { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
 
-  const {createUser} = useContext(StoreContext)
+  const navigate = useNavigate()
+  const {url, setToken} = useContext(StoreContext)
+  
+  async function createUser(data) {
+    const res = await fetch("http://localhost:3000/user/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await res.json();
+    
+    if(result.success){
+      setToken(result.token)
+      localStorage.setItem("user_id", result.createUser._id)
+      localStorage.setItem("token", result.token)
+      navigate("/links")
+    }else{
+      alert("Unable to Create Account")
+    }
+  }
   
   const {
     register,
