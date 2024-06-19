@@ -9,7 +9,7 @@ const SignUp = () => {
   const {url, setToken} = useContext(StoreContext)
   
   async function createUser(data) {
-    const res = await fetch("http://localhost:3000/user/signup", {
+    const res = await fetch(url+"user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

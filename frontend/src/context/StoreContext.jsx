@@ -28,6 +28,7 @@ const StoreContextProvider = (props) => {
   
   const contextValue = {
     urls, 
+    url,
     setUrls,
     toogle,
     setToogle,

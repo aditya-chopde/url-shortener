@@ -10,12 +10,13 @@ import { StoreContext } from "../context/StoreContext";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const { toogle, setToogle, name } = useContext(StoreContext);
+  const { toogle, setToogle, name, setToken} = useContext(StoreContext);
   const navigate = useNavigate();
 
   const userLogOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
+    setToken("")
     navigate("/");
   };
 

@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import ErrorPage from './components/ErrorPage'
 import Home from './components/Home'
+import About from './components/About'
 
 function App() {
 
@@ -33,6 +34,11 @@ function App() {
     {
       path: "/login",
       element: <><Home/><Login/></>
+    },
+    {
+      path: "/about",
+      element: <><Home/><About/></>
+      
     }
   ]);
 

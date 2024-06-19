@@ -8,12 +8,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Home = () => {
   const { toogle, setToogle } = useContext(StoreContext);
     const navigate = useNavigate()
-  const {token} = useContext(StoreContext)
 
   useEffect(() => {
-    if(token){
+    if(localStorage.getItem("token")){
         navigate("/links")
+      }else{
+        navigate("/")
       }
+      setToogle(false)
   }, [])
   
   return (

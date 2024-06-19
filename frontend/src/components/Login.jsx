@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Login = () => {
  
   const navigate = useNavigate()
-  const {url} = useContext(StoreContext)
+  const {url, setToken} = useContext(StoreContext)
 
   async function logInUser(data) {
     const res = await fetch(url+"user/login", {
@@ -18,9 +18,14 @@ const Login = () => {
     });
     const result = await res.json();
     
-    localStorage.setItem("user_id", result.user._id)
-    localStorage.setItem("token", result.token)
-    localStorage.setItem("name", result.user.name)
+    if(result.success){
+      setToken(result.token)
+      localStorage.setItem("user_id", result.find._id)
+      localStorage.setItem("token", result.token)
+      navigate("/links")
+    }else{
+      alert("Unable to login")
+    }
   }
 
   const {
