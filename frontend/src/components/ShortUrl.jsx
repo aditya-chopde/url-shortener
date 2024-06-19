@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { StoreContext } from "../context/StoreContext";
 
 const ShortUrl = () => {
-  const userId = localStorage.getItem("user_id");
-  const navigate = useNavigate()
+  const { url, userToken, userId } = useContext(StoreContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -14,25 +14,30 @@ const ShortUrl = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const url_backend = "http://localhost:3000/url";
-
-  async function fetching_data(data) {
-    const res = await fetch(url_backend, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await res.json();
-    navigate("/links")
+  async function createUrl(data) {
+    if (localStorage.getItem("token")) {
+      const res = await fetch(url + "url", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      navigate("/links");
+    } else {
+      navigate("/login");
+    }
   }
 
   return (
     <>
       <div className="bg-[#ffff]">
         <div className="lg:place-items-center lg:grid lg:w-full lg:min-h-screen">
-          <form className="px-5 py-10 lg:w-[800px] lg:place-items-center" onSubmit={handleSubmit(fetching_data)}>
+          <form
+            className="px-5 py-10 lg:w-[800px] lg:place-items-center"
+            onSubmit={handleSubmit(createUrl)}
+          >
             <h1 className="text-3xl font-bold lg:text-[50px]">Create New</h1>
             <div className="mt-12">
               <p className="my-2 lg:text-[25px]">Destination: </p>
@@ -64,12 +69,12 @@ const ShortUrl = () => {
                 value={userId}
               />
               <div className="my-2">
-                    <input
-                      disabled={isSubmitting}
-                      type="submit"
-                      className="my-2 w-full cursor-pointer py-2 bg-[#00ED64] rounded-sm text-white lg:text-xl"
-                      value="Create"
-                    />
+                <input
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="my-2 w-full cursor-pointer py-2 bg-[#00ED64] rounded-sm text-white lg:text-xl"
+                  value="Create"
+                />
                 <NavLink to="/links">
                   <button className="text-[#00ED64] py-2 w-full my-2 border-[1px] border-[#00ED64] bg-white lg:text-xl">
                     Cancel

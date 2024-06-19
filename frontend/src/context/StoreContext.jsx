@@ -5,26 +5,11 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
   const url = "http://localhost:3000/";
+  const userId = localStorage.getItem("user_id")
+  const userToken = localStorage.getItem("token")
   const [urls, setUrls] = useState([]);
   const [toogle, setToogle] = useState(false);
   const [token, setToken] = useState("")
-
-  // const fetchUrls = async () => {
-  //   const res = await fetch(url + "user/" + userId);
-  //   const result = await res.json();
-  //   const urlArray = result.allUrls;
-  //   if(!token) return;
-  //   urlArray.reverse();
-  //   setUrls(urlArray);
-  // };
-
-  // useEffect(() => {
-  //   async function loadData(){
-  //       fetchUrls();
-  //   }
-  //   loadData()
-  // }, [])
-
   
   const contextValue = {
     urls, 
@@ -34,6 +19,8 @@ const StoreContextProvider = (props) => {
     setToogle,
     token,
     setToken,
+    userToken,
+    userId,
   };
 
   return (
