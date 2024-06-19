@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
   const [urls, setUrls] = useState([]);
 
   const fetchUrls = async () => {
-    const res = await fetch(url + "user/" + userId);
+    const res = await fetch(url + "url/" + userId);
     const result = await res.json();
     const urlArray = result.allUrls;
     if(!token) return;
