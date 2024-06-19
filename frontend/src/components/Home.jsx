@@ -16,13 +16,11 @@ const Home = () => {
       }
   }, [])
   
-
-
   return (
     <>
       <nav className="m-5 flex flex-row justify-between relative">
         <div>
-          <img src={logoMin} alt="Logo_min" className="w-16 flex" />
+          <img src={logoMin} alt="Logo_min" className="w-16 flex cursor-pointer" />
         </div>
         <div
           className={`absolute h-screen bg-white w-full flex flex-row justify-between ${
@@ -63,7 +61,7 @@ const Home = () => {
             <img
               src={cross}
               alt="cross"
-              className="w-8 my-3"
+              className="w-8 my-3 cursor-pointer"
               onClick={() => setToogle(false)}
             />
           </div>
@@ -73,7 +71,7 @@ const Home = () => {
             <img
               src={hamburer}
               alt="Hamburger"
-              className="w-6 mx-3"
+              className="w-6 mx-3 cursor-pointer"
               onClick={() => setToogle(true)}
             />
           </div>

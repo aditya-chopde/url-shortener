@@ -5,8 +5,9 @@ import deleteSvg from "../assets/delete.svg";
 import { StoreContext } from "../context/StoreContext";
 
 const AllUrls = () => {
-  const shortUrl = document.getElementById("shortUrl");
+  
   function copyUrl() {
+    const shortUrl = document.getElementById("shortUrl");
     navigator.clipboard.writeText(shortUrl.innerHTML);
   }
 
@@ -14,14 +15,15 @@ const AllUrls = () => {
 
   return (
     <>
-      <div className="w-full h-screen my-10">
-        <h1 className="font-bold text-3xl mx-5 my-8">Your Links</h1>
+    <div className="bg-[#ffff] w-full lg:min-h-screen lg:grid lg:place-items-center">
+      <div className="h-screen my-10 lg:w-[800px]">
+        <h1 className="font-bold text-3xl mx-5 my-8 lg:text-[50px]">Your Links</h1>
         {urls.map((url) => (
           <div
             key={url._id}
             className="border-[1px] border-black shadow-md mx-6 p-5 rounded-md my-3 space-y-3"
           >
-            <h3 className="text-xl font-bold">{url.title}</h3>
+            <h3 className="text-xl font-bold lg:text-[25px]">{url.title}</h3>
             <a
               href={`http://localhost:3000/url/${url.shortId}`}
               className="text-blue-600 text-lg hover:underline"
@@ -54,6 +56,7 @@ const AllUrls = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </>
   );

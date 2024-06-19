@@ -6,6 +6,7 @@ const StoreContextProvider = (props) => {
 
   const url = "http://localhost:3000/";
   const userId = localStorage.getItem("user_id");
+  const name = localStorage.getItem("name")
   const token = localStorage.getItem("token")
   const [urls, setUrls] = useState([]);
 
@@ -30,6 +31,7 @@ const StoreContextProvider = (props) => {
     
     localStorage.setItem("user_id", result.user._id)
     localStorage.setItem("token", result.token)
+    localStorage.setItem("name", result.user.name)
   }
 
   async function createUser(data) {
@@ -64,6 +66,7 @@ const StoreContextProvider = (props) => {
     toogle,
     setToogle,
     token,
+    name,
   };
 
   return (
