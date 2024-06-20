@@ -7,6 +7,7 @@ const StoreContextProvider = (props) => {
   const url = "http://localhost:3000/";
   const userId = localStorage.getItem("user_id")
   const userToken = localStorage.getItem("token")
+  const name = localStorage.getItem("name")
   const [urls, setUrls] = useState([]);
   const [toogle, setToogle] = useState(false);
   const [token, setToken] = useState("")
@@ -20,6 +21,7 @@ const StoreContextProvider = (props) => {
     token,
     setToken,
     userToken,
+    name,
     userId,
   };
 

@@ -21,6 +21,7 @@ const Login = () => {
     if(result.success){
       setToken(result.token)
       localStorage.setItem("user_id", result.find._id)
+      localStorage.setItem("name", result.find.name)
       localStorage.setItem("token", result.token)
       navigate("/links")
     }else{

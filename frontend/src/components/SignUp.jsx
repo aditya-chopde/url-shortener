@@ -22,6 +22,7 @@ const SignUp = () => {
       setToken(result.token)
       localStorage.setItem("user_id", result.createUser._id)
       localStorage.setItem("token", result.token)
+      localStorage.setItem("name", result.createUser.name)
       navigate("/links")
     }else{
       alert("Unable to Create Account")

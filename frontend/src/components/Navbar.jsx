@@ -40,7 +40,7 @@ const Navbar = () => {
             />
           </div>
           <div
-            className={`lg:block lg:top-[85px] lg:w-[350px] lg:border-r-2 lg:px-5 lg:py-5 absolute w-full bg-white h-screen  ${
+            className={`lg:block lg:top-[85px] lg:w-[300px] lg:border-r-2 lg:px-5 lg:py-5 absolute w-full bg-white h-screen  ${
               toogle ? "" : "hidden"
             }`}
             id="sideBar"
@@ -55,7 +55,7 @@ const Navbar = () => {
             </div>
             <ul className="space-y-5">
               <NavLink to="/create" onClick={() => setToogle(false)}>
-                <li className="my-3 lg:mx-3 lg:w-72 w-full py-2 bg-[#00ED64] rounded-sm text-white text-center text-lg font-bold cursor-pointer lg:text-xl">
+                <li className="my-3 lg:mx-3 lg:w-60 w-full py-2 bg-[#00ED64] rounded-sm text-white text-center text-lg font-bold cursor-pointer lg:text-xl">
                   Create New
                 </li>
               </NavLink>
@@ -66,12 +66,12 @@ const Navbar = () => {
                   className="text-md"
                   onClick={() => setToogle(false)}
                 >
-                  <li className="flex flex-row w-full gap-5 my-3 lg:text-xl">
+                  <li className="flex flex-row w-full gap-5 my-3 lg:text-lg">
                     <img src={link} alt="Link" className="w-6" />
                     Links
                   </li>
                 </NavLink>
-                <li className="flex flex-row gap-5 my-3 lg:text-xl">
+                <li className="flex flex-row gap-5 my-3 lg:text-lg">
                   <img src={anal} alt="analytics" className="w-6" />
                   <a href="" className="text-md">
                     Analytics
@@ -79,7 +79,7 @@ const Navbar = () => {
                 </li>
                 <hr />
                 <NavLink to="/" className="text-md">
-                  <li className="flex flex-row w-full cursor-pointer gap-5 my-3 lg:text-xl" onClick={userLogOut}>
+                  <li className="flex flex-row w-full cursor-pointer gap-5 my-3 lg:text-lg" onClick={userLogOut}>
                     <img src={logout} alt="analytics" className="w-6" />
                     Logout
                   </li>
@@ -87,9 +87,9 @@ const Navbar = () => {
               </div>
             </ul>
           </div>
-          <div className="lg:mx-12 lg:mt-5 flex gap-3 justify-center items-center cursor-pointer">
-            <img src={profile} alt="profile_photo" className="w-8" />
-            <p className="hidden lg:block font-bold">{name}</p>
+          <div className="lg:mx-8 lg:mt-3 flex gap-3 justify-center items-center cursor-pointer">
+            <img src={profile} alt="profile_photo" className="w-6" />
+            <p className="hidden lg:block font-bold text-sm">{name}</p>
           </div>
         </div>
       </nav>

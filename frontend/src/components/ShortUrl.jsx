@@ -38,9 +38,9 @@ const ShortUrl = () => {
             className="px-5 py-10 lg:w-[800px] lg:place-items-center"
             onSubmit={handleSubmit(createUrl)}
           >
-            <h1 className="text-3xl font-bold lg:text-[50px]">Create New</h1>
+            <h1 className="text-3xl font-bold lg:text-4xl">Create New</h1>
             <div className="mt-12">
-              <p className="my-2 lg:text-[25px]">Destination: </p>
+              <p className="my-2 lg:text-xl">Destination: </p>
               <input
                 {...register("url", {
                   required: {
@@ -49,13 +49,13 @@ const ShortUrl = () => {
                   },
                 })}
                 type="text"
-                className="px-2 py-3 w-full lg:h-[55px] outline-[#00ED64] rounded-sm lg:px-5 lg:text-xl border-2"
+                className="px-2 py-3 w-full lg:h-[45px] outline-[#00ED64] rounded-sm lg:px-5 lg:text-xl border-2"
                 placeholder="Enter/Paste Link Here: "
               />
               {errors.url && (
                 <div className="text-sm text-red-500">{errors.url.message}</div>
               )}
-              <p className="my-2 lg:text-[25px]">Title: (Optional)</p>
+              <p className="my-2 lg:text-xl">Title: (Optional)</p>
               <input
                 {...register("title")}
                 type="text"
