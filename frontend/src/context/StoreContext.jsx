@@ -9,15 +9,12 @@ const StoreContextProvider = (props) => {
   const userToken = localStorage.getItem("token")
   const name = localStorage.getItem("name")
   const [urls, setUrls] = useState([]);
-  const [toogle, setToogle] = useState(false);
   const [token, setToken] = useState("")
   
   const contextValue = {
     urls, 
     url,
     setUrls,
-    toogle,
-    setToogle,
     token,
     setToken,
     userToken,

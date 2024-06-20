@@ -10,7 +10,8 @@ import { StoreContext } from "../context/StoreContext";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const { toogle, setToogle, name, setToken} = useContext(StoreContext);
+  const { name, setToken} = useContext(StoreContext);
+  const [toogle, setToogle] = useState(false)
   const navigate = useNavigate();
 
   const userLogOut = () => {
@@ -29,7 +30,7 @@ const Navbar = () => {
               src={hamburer}
               alt="Hamburger"
               className="w-6"
-              onClick={() => setToogle(true)}
+              onClick={() => setToogle(false)}
             />
           </div>
           <div>
@@ -41,7 +42,7 @@ const Navbar = () => {
           </div>
           <div
             className={`lg:block lg:top-[85px] lg:w-[300px] lg:border-r-2 lg:px-5 lg:py-5 absolute w-full bg-white h-screen  ${
-              toogle ? "" : "hidden"
+              toogle && "hidden"
             }`}
             id="sideBar"
           >

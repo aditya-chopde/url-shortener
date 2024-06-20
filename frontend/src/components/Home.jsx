@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from "react";
-import logoMin from "../assets/logo-min.png";
+import React, { useContext, useEffect, useState } from "react";
+import logo from "../assets/logo.png";
 import { StoreContext } from "../context/StoreContext";
 import hamburer from "../assets/hamburger.svg";
 import cross from "../assets/cross.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const { toogle, setToogle } = useContext(StoreContext);
   const navigate = useNavigate();
+  const [toogle, setToogle] = useState(false)
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -15,72 +15,66 @@ const Home = () => {
     } else {
       navigate("/");
     }
-    setToogle(false);
+    setToogle(true);
   }, []);
 
   return (
     <>
-      <nav className="m-5 flex flex-row justify-between relative lg:block">
+      <nav className="mx-5">
+        <div className="flex lg:flex-row justify-between relative">
+
+          {/* Logo  */}
           <div>
-            <img
-              src={logoMin}
-              alt="Logo_min"
-              className="w-16 flex cursor-pointer"
-            />
+            <img src={logo} alt="main_logo" className="lg:w-28 w-20 cursor-pointer lg:mx-10" onClick={()=> navigate("/")}/>
           </div>
-          <div
-            className={`lg:block absolute h-screen bg-white w-full flex flex-row justify-between ${
-              toogle ? "" : "hidden"
-            }`}
-          >
-            <ul className="space-y-10 text-xl lg:flex lg:flex-row lg:gap-5 lg:items-center">
+
+          {/* NavLinks  */}
+          <div className={`lg:mt-0 lg:left-[1000px] w-full lg:w-[450px] lg:h-10 h-screen absolute bg-white flex justify-between ${toogle?"hidden":""} lg:block`}>
+            <ul className="lg:flex lg:flex-row lg:gap-5 lg:items-center space-y-6">
               <li></li>
-              <li>
-                <NavLink to="/" onClick={() => setToogle(false)}>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/about" onClick={() => setToogle(false)}>
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact" onClick={() => setToogle(false)}>
-                  Contact Us
-                </NavLink>
-              </li>
-              <div className="flex flex-row gap-3">
-                <li className="my-2 w-24 text-center p-2 bg-[#D9D9D9] rounded-s">
-                  <NavLink to="/login" onClick={() => setToogle(false)}>
+              <li className="cursor-pointer" onClick={()=> {
+                    navigate("/")
+                    setToogle(true)
+                  }}>Home</li>
+              <li className="cursor-pointer"  onClick={()=> {
+                    navigate("/about")
+                    setToogle(true)
+                  }}>About</li>
+              <li className="cursor-pointer" onClick={()=> {
+                    navigate("/contact")
+                    setToogle(true)
+                  }}>Contact Us </li>
+              <div className="lg:flex lg:flex-row lg:gap-5 space-y-6">
+                <li>
+                  <button className="bg-[#e2e5e3] py-1 px-5 rounded-md lg:mt-6" onClick={()=> {
+                    navigate("/login")
+                    setToogle(true)
+                  }}>
                     Login
-                  </NavLink>
+                  </button>
                 </li>
-                <li className="my-2 text-white w-24 text-center p-2 bg-[#00ED64] rounded-sm">
-                  <NavLink to="/signup" onClick={() => setToogle(false)}>
-                    Sign Up
-                  </NavLink>
+                <li>
+                  <button className="bg-[#00ED64] py-1 px-5 lg:mb-6 rounded-md text-white"  onClick={()=> {
+                    navigate("/signup")
+                    setToogle(true)
+                  }}>
+                    SignUp
+                  </button>
                 </li>
               </div>
             </ul>
-          <div>
-            <img
-              src={cross}
-              alt="cross"
-              className="w-8 my-3 cursor-pointer lg:hidden"
-              onClick={() => setToogle(false)}
-            />
+            
+          {/* Cross  */}
+          <div className="mt-5">
+            <img src={cross} alt="cross" className="w-6 lg:hidden" onClick={()=> setToogle(true)}/>
           </div>
-        </div>
-        <div>
-          <div>
-            <img
-              src={hamburer}
-              alt="Hamburger"
-              className="w-6 mx-3 cursor-pointer lg:hidden"
-              onClick={() => setToogle(true)}
-            />
           </div>
+
+          {/* Hamburger */}
+          <div className="lg:hidden">
+            <img src={hamburer} alt="hamburger" className="w-6 mt-8" onClick={(()=> setToogle(false))}/>
+          </div>
+
         </div>
       </nav>
     </>

@@ -10,13 +10,14 @@ import {
 import ErrorPage from './components/ErrorPage'
 import Home from './components/Home'
 import About from './components/About'
+import Footer from './components/Footer'
 
 function App() {
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <><Home/></>,
+      element: <><Home/><Footer/></>,
       errorElement: <ErrorPage/>
     },
     {
@@ -29,16 +30,19 @@ function App() {
     },
     {
       path: "/signup",
-      element: <><Home/><SignUp/></>
+      element: <><Home/><SignUp/><Footer/></>
     },
     {
       path: "/login",
-      element: <><Home/><Login/></>
+      element: <><Home/><Login/><Footer/></>
     },
     {
       path: "/about",
-      element: <><Home/><About/></>
+      element: <><Home/><About/><Footer/></>
       
+    },{
+      path: "/contact",
+      element: <><Home/><Footer/></>
     }
   ]);
 
