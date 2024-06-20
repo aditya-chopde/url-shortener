@@ -11,7 +11,7 @@ import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const { name, setToken} = useContext(StoreContext);
-  const [toogle, setToogle] = useState(false)
+  const [toogle, setToogle] = useState(true)
   const navigate = useNavigate();
 
   const userLogOut = () => {
@@ -51,7 +51,7 @@ const Navbar = () => {
                 src={cross}
                 alt="cross"
                 className="w-8 my-3 lg:hidden"
-                onClick={() => setToogle(false)}
+                onClick={() => setToogle(true)}
               />
             </div>
             <ul className="space-y-5">

@@ -11,13 +11,16 @@ import ErrorPage from './components/ErrorPage'
 import Home from './components/Home'
 import About from './components/About'
 import Footer from './components/Footer'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import Testimonails from './components/Testimonails'
 
 function App() {
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <><Home/><Footer/></>,
+      element: <><Home/><Hero/><Services/><Testimonails/><Footer/></>,
       errorElement: <ErrorPage/>
     },
     {
