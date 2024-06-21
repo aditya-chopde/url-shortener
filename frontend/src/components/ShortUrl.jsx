@@ -50,7 +50,7 @@ const ShortUrl = () => {
                   },
                 })}
                 type="text"
-                className="px-2 py-3 w-full lg:h-[45px] outline-[#00ED64] rounded-sm lg:px-5 lg:text-xl border-2"
+                className="px-2 py-3 w-full lg:h-[45px] outline-[#00ED64] rounded-sm lg:px-5 lg:text-md border-2"
                 placeholder="Enter/Paste Link Here: "
               />
               {errors.url && (
@@ -60,7 +60,7 @@ const ShortUrl = () => {
               <input
                 {...register("title")}
                 type="text"
-                className="px-2 py-3 lg:px-5 w-full border-2 outline-[#00ED64] rounded-sm lg:h-[55px] lg:text-xl"
+                className="px-2 py-3 lg:px-5 w-full border-2 outline-[#00ED64] rounded-sm lg:h-[55px] lg:text-md"
                 placeholder="Enter Title Here: "
               />
               <input

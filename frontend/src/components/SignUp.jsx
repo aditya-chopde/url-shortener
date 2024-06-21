@@ -81,6 +81,9 @@ const SignUp = () => {
             className="px-2 py-3 w-full lg:w-96 border-2 outline-[#00ED64] rounded-sm my-2"
             placeholder="Enter Email: "
           />
+          {errors.name && (
+            <div className="text-red-600">{errors.name.message}</div>
+          )}
 
           <h3 className="font-bold">Password</h3>
           <input

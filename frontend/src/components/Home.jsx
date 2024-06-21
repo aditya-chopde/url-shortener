@@ -77,6 +77,7 @@ const Home = () => {
                     onClick={() => {
                       navigate("/login");
                       setToogle(true);
+                      setCurrent("")
                     }}
                   >
                     Login
@@ -87,6 +88,7 @@ const Home = () => {
                     className="bg-[#00ED64] py-1 px-5 lg:mb-6 rounded-md text-white"
                     onClick={() => {
                       navigate("/signup");
+                      setCurrent("")
                       setToogle(true);
                     }}
                   >

@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import Testimonails from './components/Testimonails'
+import Contact from './components/Contact'
 
 function App() {
 
@@ -49,7 +50,7 @@ function App() {
       
     },{
       path: "/contact",
-      element: <><Home/><Footer/></>
+      element: <><Home/><Contact/><Footer/></>
     }
   ]);
 

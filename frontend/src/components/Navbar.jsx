@@ -82,16 +82,16 @@ const Navbar = () => {
                   </li>
                 </NavLink>
 
+                <NavLink to="/analytics" className="text-md">
                 <li className={`flex flex-row w-full gap-5 my-3 py-2 px-3 lg:text-lg transition-all ${current=="analytics"?"lg:border-l-[5px] lg:border-[#318152] lg:bg-[#00ED64]":""}`}
                 onClick={()=>{
                   setCurrent("analytics")
                 }}
                 >
                   <img src={anal} alt="analytics" className="w-6" />
-                  <NavLink to="/analytics" className="text-md">
                     Analytics
-                  </NavLink>
                 </li>
+                  </NavLink>
                 <hr />
                 <NavLink to="/" className="text-md">
                   <li className="flex flex-row w-full cursor-pointer gap-5 my-3 lg:text-lg" onClick={userLogOut}>
