@@ -10,7 +10,7 @@ import { StoreContext } from "../context/StoreContext";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const { name, setToken} = useContext(StoreContext);
+  const { name, setToken, current, setCurrent} = useContext(StoreContext);
   const [toogle, setToogle] = useState(true)
   const navigate = useNavigate();
 
@@ -56,7 +56,12 @@ const Navbar = () => {
             </div>
             <ul className="space-y-5">
               <NavLink to="/create" onClick={() => setToogle(false)}>
-                <li className="my-3 lg:mx-3 lg:w-60 w-full py-2 bg-[#00ED64] rounded-sm text-white text-center text-lg font-bold cursor-pointer lg:text-xl">
+                <li className="my-3 lg:mx-3 lg:w-60 w-full py-2 bg-[#00ED64] rounded-sm text-white text-center text-lg 
+                font-bold cursor-pointer lg:text-xl"
+                onClick={()=>{
+                  setCurrent("")
+                }}
+                >
                   Create New
                 </li>
               </NavLink>
@@ -67,16 +72,25 @@ const Navbar = () => {
                   className="text-md"
                   onClick={() => setToogle(false)}
                 >
-                  <li className="flex flex-row w-full gap-5 my-3 lg:text-lg">
+                  <li className={`flex flex-row w-full gap-5 my-3 py-2 px-3 lg:text-lg transition-all ${current=="links"?"lg:border-l-[5px] lg:border-[#399660] lg:bg-[#00ED64]":""}`}
+                  onClick={()=>{
+                    setCurrent("links")
+                  }}
+                  >
                     <img src={link} alt="Link" className="w-6" />
                     Links
                   </li>
                 </NavLink>
-                <li className="flex flex-row gap-5 my-3 lg:text-lg">
+
+                <li className={`flex flex-row w-full gap-5 my-3 py-2 px-3 lg:text-lg transition-all ${current=="analytics"?"lg:border-l-[5px] lg:border-[#318152] lg:bg-[#00ED64]":""}`}
+                onClick={()=>{
+                  setCurrent("analytics")
+                }}
+                >
                   <img src={anal} alt="analytics" className="w-6" />
-                  <a href="" className="text-md">
+                  <NavLink to="/analytics" className="text-md">
                     Analytics
-                  </a>
+                  </NavLink>
                 </li>
                 <hr />
                 <NavLink to="/" className="text-md">

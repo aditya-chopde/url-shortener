@@ -41,12 +41,14 @@ const AllUrls = () => {
   }, []);
 
   return (
-    <>
+    <>    
       <div className="bg-[#ffff] w-full lg:min-h-screen lg:grid lg:place-items-center">
         <div className="h-screen my-10 lg:w-[800px]">
           <h1 className="font-bold text-3xl mx-5 my-8 lg:text-4xl">
             Your Links
           </h1>
+          {urls.length==0?<><p className="mx-6">No Urls Generated</p></>:
+          <>
           {urls.map((url) => (
             <div
               key={url._id}
@@ -86,6 +88,7 @@ const AllUrls = () => {
               </div>
             </div>
           ))}
+          </>}
         </div>
       </div>
     </>

@@ -28,6 +28,10 @@ function App() {
       element: <><Navbar/><ShortUrl/></>
     },
     {
+      path: "/analytics",
+      element: <><Navbar/></>
+    },
+    {
       path: "/links",
       element: <><Navbar/><AllUrls/></>
     },

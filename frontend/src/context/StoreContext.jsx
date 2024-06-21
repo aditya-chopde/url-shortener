@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { set } from "react-hook-form";
 
 export const StoreContext = createContext(null);
 
@@ -10,6 +11,7 @@ const StoreContextProvider = (props) => {
   const name = localStorage.getItem("name")
   const [urls, setUrls] = useState([]);
   const [token, setToken] = useState("")
+  const [current, setCurrent] = useState("links")
   
   const contextValue = {
     urls, 
@@ -20,6 +22,8 @@ const StoreContextProvider = (props) => {
     userToken,
     name,
     userId,
+    current,
+    setCurrent,
   };
 
   return (

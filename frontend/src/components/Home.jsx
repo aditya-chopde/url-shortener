@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const [toogle, setToogle] = useState(false);
+  const [current, setCurrent] = useState("home")
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -40,28 +41,31 @@ const Home = () => {
             <ul className="lg:flex lg:flex-row lg:gap-5 lg:items-center space-y-6">
               <li></li>
               <li
-                className="cursor-pointer"
+                className={`cursor-pointer transition-all ${current=="home"?"lg:border-b-[2px] lg:border-black":""}`}
                 onClick={() => {
                   navigate("/");
                   setToogle(true);
+                  setCurrent("home")
                 }}
               >
                 Home
               </li>
               <li
-                className="cursor-pointer"
+                className={`cursor-pointer transition-all ${current=="about"?"lg:border-b-[2px] lg:border-black":""}`}
                 onClick={() => {
                   navigate("/about");
                   setToogle(true);
+                  setCurrent("about")
                 }}
               >
                 About
               </li>
               <li
-                className="cursor-pointer"
+                className={`cursor-pointer transition-all ${current=="contact"?"lg:border-b-[2px] lg:border-black":""}`}
                 onClick={() => {
                   navigate("/contact");
                   setToogle(true);
+                  setCurrent("contact")
                 }}
               >
                 Contact Us{" "}

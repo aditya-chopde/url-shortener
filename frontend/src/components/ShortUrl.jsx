@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
 
 const ShortUrl = () => {
-  const { url, userToken, userId } = useContext(StoreContext);
+  const { url, userToken, userId, setCurrent } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const {
@@ -25,6 +25,7 @@ const ShortUrl = () => {
       });
       const result = await res.json();
       navigate("/links");
+      setCurrent("links");
     } else {
       navigate("/login");
     }
@@ -40,7 +41,7 @@ const ShortUrl = () => {
           >
             <h1 className="text-3xl font-bold lg:text-4xl">Create New</h1>
             <div className="mt-12">
-              <p className="my-2 lg:text-xl">Destination: </p>
+              <p className="my-2 lg:text-lg">Destination: </p>
               <input
                 {...register("url", {
                   required: {
@@ -55,7 +56,7 @@ const ShortUrl = () => {
               {errors.url && (
                 <div className="text-sm text-red-500">{errors.url.message}</div>
               )}
-              <p className="my-2 lg:text-xl">Title: (Optional)</p>
+              <p className="mt-8 mb-3 lg:text-lg">Title: (Optional)</p>
               <input
                 {...register("title")}
                 type="text"
@@ -76,7 +77,12 @@ const ShortUrl = () => {
                   value="Create"
                 />
                 <NavLink to="/links">
-                  <button className="text-[#00ED64] py-2 w-full my-2 border-[1px] border-[#00ED64] bg-white lg:text-xl">
+                  <button
+                    onClick={() => {
+                      setCurrent("links");
+                    }}
+                    className="text-[#00ED64] py-2 w-full my-2 border-[1px] border-[#00ED64] bg-white lg:text-xl"
+                  >
                     Cancel
                   </button>
                 </NavLink>

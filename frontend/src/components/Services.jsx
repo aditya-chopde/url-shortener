@@ -12,7 +12,7 @@ const Services = () => {
           <h1 className="lg:text-[30px] lg:leading-none text-xl mt-10 mb-3 font-bold">
             The Vitly Connections Platform
           </h1>
-          <p className="lg:text-xl text-lg text-justify">
+          <p className="lg:text-xl text-lg text-justify mx-5">
             All the products you need to build brand connections, manage links
             and QR Codes, in a single unified platform.
           </p>
