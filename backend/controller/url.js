@@ -1,8 +1,28 @@
 const shortid = require("shortid")
 const Url = require("../models/url");
 
-async function working(req, res){
+async function working(req, res) {
     res.send("API WORKING")
+}
+
+async function handleUrlEdit(req, res) {
+    const id = req.params.id;
+    if (!id) return res.status(404).json({ success: false, message: "ShortId is required" })
+    try {
+        const findId = await Url.updateOne({ _id: id }, {
+            $set: {
+                title: req.body.title,
+                redirectURL: req.body.url
+            }
+        })
+        res.json({
+            success: true, updatedUrl: findId, title: req.body.title,
+            redirectURL: req.body.url
+        })
+    } catch (err) {
+        res.json({ success: false, error: err })
+    }
+
 }
 
 async function handleGenerateShortUrl(req, res) {
@@ -31,7 +51,7 @@ async function handleRedirect(req, res) {
             },
         },
     })
-    if(!getUrl) return;
+    if (!getUrl) return;
     res.redirect(getUrl.redirectURL)
 }
 
@@ -50,7 +70,7 @@ async function handleDeleteUrl(req, res) {
         const deleteUrl = await Url.findByIdAndDelete(id)
         res.json({ success: true, deleteUrl })
     } catch (err) {
-        res.json({success: false, error: err} )
+        res.json({ success: false, error: err })
     }
 }
 
@@ -60,4 +80,5 @@ module.exports = {
     handleAnalytics,
     handleDeleteUrl,
     working,
+    handleUrlEdit,
 }
