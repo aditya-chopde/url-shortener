@@ -15,6 +15,7 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import Testimonails from './components/Testimonails'
 import Contact from './components/Contact'
+import Analytics from './components/Analytics'
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
     },
     {
       path: "/analytics",
-      element: <><Navbar/></>
+      element: <><Navbar/><Analytics/></>
     },
     {
       path: "/links",
