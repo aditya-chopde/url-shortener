@@ -16,6 +16,8 @@ import Services from './components/Services'
 import Testimonails from './components/Testimonails'
 import Contact from './components/Contact'
 import Analytics from './components/Analytics'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -57,6 +59,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
      <RouterProvider router={router} />
     </>
   )

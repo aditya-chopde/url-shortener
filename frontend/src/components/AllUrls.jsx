@@ -1,9 +1,11 @@
-import React, { StrictMode, useContext, useEffect, useState } from "react";
-import copy from "../assets/copy.svg";
+import React, { useContext, useEffect, useState } from "react";
+import copy_img from "../assets/copy.svg";
 import deleteSvg from "../assets/delete.svg";
 import { StoreContext } from "../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AllUrls = () => {
   const { urls, setUrls, url, userToken, userId, setCurrent } =
@@ -13,6 +15,10 @@ const AllUrls = () => {
   function copyUrl() {
     const shortUrl = document.getElementById("shortUrl");
     navigator.clipboard.writeText(shortUrl.innerHTML);
+    toast.success("Url Copied Successfullly !", {
+      position: "bottom-right",
+      autoClose: 1000
+    });
   }
 
   const fetchUrls = async () => {
@@ -27,6 +33,10 @@ const AllUrls = () => {
     axios.post(url + "url/delete/" + id).then(() => {
       let newUrls = urls.filter((url) => url._id !== id);
       setUrls(newUrls);
+    });
+    toast.success("Url Deleted Successfullly !", {
+      position: "bottom-right",
+      autoClose: 1000
     });
   };
 
@@ -70,8 +80,8 @@ const AllUrls = () => {
                       className="text-black px-3 rounded-sm py-1 border-[1px] border-black flex gap-2 justify-center items-center hover:bg-[#f4f6fa]"
                       onClick={copyUrl}
                     >
-                      <img src={copy} alt="copy_svg" className="w-5" />
-                      Copy
+                      <img src={copy_img} alt="copy_svg" className="w-5" />
+                      {"Copy"}
                     </button>
                     <button
                       className="text-black px-3 rounded-sm py-1 border-[1px] border-black flex gap-2 justify-center items-center hover:bg-[#f4f6fa]"

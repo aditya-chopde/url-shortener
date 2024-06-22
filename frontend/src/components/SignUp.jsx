@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import SignUp_img from "../assets/signUp.webp"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
 
@@ -24,9 +26,16 @@ const SignUp = () => {
       localStorage.setItem("user_id", result.createUser._id)
       localStorage.setItem("token", result.token)
       localStorage.setItem("name", result.createUser.name)
+      toast.success("Sign Up Successfullly !", {
+        position: "bottom-right",
+        autoClose: 1000
+      });
       navigate("/links")
     }else{
-      alert("Unable to Create Account")
+      toast.error("Unable to Create Account !", {
+        position: "bottom-right",
+        autoClose: 1000
+      });
     }
   }
   

@@ -3,9 +3,11 @@ import React, { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import Login_assert from "../assets/login_img.png"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
- 
+  
   const navigate = useNavigate()
   const {url, setToken} = useContext(StoreContext)
 
@@ -24,9 +26,15 @@ const Login = () => {
       localStorage.setItem("user_id", result.find._id)
       localStorage.setItem("name", result.find.name)
       localStorage.setItem("token", result.token)
+      toast.success("Logged In Successfullly !", {
+        position: "bottom-right",
+        autoClose: 1000
+      });
       navigate("/links")
     }else{
-      alert("Unable to login")
+      toast.error("Unable to Login !", {
+        position: "bottom-right"
+      });
     }
   }
 

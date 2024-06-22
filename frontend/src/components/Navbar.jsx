@@ -8,6 +8,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import logout from "../assets/logout.svg";
 import { StoreContext } from "../context/StoreContext";
 import logo from "../assets/logo.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
   const { name, setToken, current, setCurrent} = useContext(StoreContext);
@@ -18,6 +20,10 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
     setToken("")
+    toast.success("Logged Out Successfullly !", {
+      position: "bottom-right",
+      autoClose: 1000
+    });
     navigate("/");
   };
 

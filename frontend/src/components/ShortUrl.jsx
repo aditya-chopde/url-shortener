@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import React, { useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ShortUrl = () => {
   const { url, userToken, userId, setCurrent } = useContext(StoreContext);
@@ -24,6 +26,10 @@ const ShortUrl = () => {
         body: JSON.stringify(data),
       });
       const result = await res.json();
+      toast.success("Url Created Successfullly !", {
+        position: "bottom-right",
+        autoClose: 1000
+      });
       navigate("/links");
       setCurrent("links");
     } else {
