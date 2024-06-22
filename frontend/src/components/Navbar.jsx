@@ -61,7 +61,10 @@ const Navbar = () => {
               />
             </div>
             <ul className="space-y-5">
-              <NavLink to="/create" onClick={() => setToogle(false)}>
+              <NavLink to="/create" onClick={() => {
+                  setToogle(false)
+                  setToogle(true)
+              }}>
                 <li className="my-3 lg:mx-3 lg:w-60 w-full py-2 bg-[#00ED64] rounded-sm text-white text-center text-lg 
                 font-bold cursor-pointer lg:text-xl"
                 onClick={()=>{
@@ -76,7 +79,7 @@ const Navbar = () => {
                 <NavLink
                   to="/links"
                   className="text-md"
-                  onClick={() => setToogle(false)}
+                  onClick={() => setToogle(true)}
                 >
                   <li className={`flex flex-row w-full gap-5 my-3 py-2 px-3 lg:text-lg transition-all ${current=="links"?"lg:border-l-[5px] lg:border-[#399660] lg:bg-[#00ED64]":""}`}
                   onClick={()=>{
@@ -91,6 +94,7 @@ const Navbar = () => {
                 <NavLink to="/analytics" className="text-md">
                 <li className={`flex flex-row w-full gap-5 my-3 py-2 px-3 lg:text-lg transition-all ${current=="analytics"?"lg:border-l-[5px] lg:border-[#318152] lg:bg-[#00ED64]":""}`}
                 onClick={()=>{
+                  setToogle(true)
                   setCurrent("analytics")
                 }}
                 >
