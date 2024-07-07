@@ -8,7 +8,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import logout from "../assets/logout.svg";
 import { StoreContext } from "../context/StoreContext";
 import logo from "../assets/logo.png";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
