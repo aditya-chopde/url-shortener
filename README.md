@@ -41,7 +41,7 @@ Contributions are welcome! Please follow these steps to contribute:
 For questions or suggestions, feel free to reach out:
 
 - **Email:** adityachopde27@gmail.com
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/aditya-chopde-486a102a2/)
-- **GitHub:** [your-username](https://github.com/aditya-chopde)
+- **LinkedIn:** [Aditya Chopde inkedIn](https://www.linkedin.com/in/aditya-chopde-486a102a2/)
+- **GitHub:** [Aditya Chopde Github](https://github.com/aditya-chopde)
 
 Thank you !
