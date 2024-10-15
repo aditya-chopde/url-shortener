@@ -21,7 +21,7 @@ const userRoute = require("./routes/user")
 
 //Connecting DB
 const connectDB = require("./connect");
-connectDB("mongodb://localhost:27017/urlShortener").then(() => {
+connectDB("mongodb+srv://adityachopde27:QkjV1lYSzjJskzsB@cluster0.o3lzf.mongodb.net/url-shortener").then(() => {
     console.log("DB Connected !")
 })
 
