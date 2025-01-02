@@ -60,10 +60,10 @@ const Analytics = () => {
                 >
                   <h3 className="text-xl font-bold lg:text-2xl">{url.title}</h3>
                   <a
-                    href={`http://localhost:3000/${url.shortId}`}
+                    href={`https://vitly-backend.onrender.com/${url.shortId}`}
                     className="text-blue-600 text-lg hover:underline"
                     id="shortUrl"
-                  >{`http://localhost:3000/${url.shortId}`}</a>{" "}
+                  >{`https://vitly-backend.onrender.com/${url.shortId}`}</a>{" "}
                   <br />
                   <a href={url.redirectURL} className="hover:underline">
                     {url.redirectURL}
