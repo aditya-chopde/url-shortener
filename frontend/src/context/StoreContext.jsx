@@ -4,7 +4,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
-  const url = "http://localhost:3000/";
+  const url = "https://vitly-backend.onrender.com/";
   const userId = localStorage.getItem("user_id")
   const userToken = localStorage.getItem("token")
   const name = localStorage.getItem("name")
