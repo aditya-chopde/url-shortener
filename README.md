@@ -2,6 +2,9 @@
 
 Vitly is a URL shortener service web application that allows users to convert long URLs into short, manageable links, similar to Bitly. This project is built using the MERN stack (MongoDB, Express.js, React, and Node.js).
 
+![Vitly - Home Page](https://github.com/aditya-chopde/url-shortener/blob/main/frontend/src/assets/Screenshot%202025-03-10%20195154.png)
+
+
 ## Table of Contents
 - [Features](#features)
 - [Technology Stack](#technology-stack)
